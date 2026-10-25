@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#11191b">
+  <meta name="description" content="Judas separates payment claims from confirmed credit for Nigerian merchants.">
+  <title>{% block title %}Judas{% endblock %} · Judas</title>
+  <link rel="icon" href="/static/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/app.css">
+  <link rel="stylesheet" href="/static/ops.css">
+</head>
+<body>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <header class="site-header {% if merchant %}merchant-header{% endif %}">
+    <a class="brand" href="/" aria-label="Judas home"><span class="brand-word" aria-hidden="true">𝕵𝖚𝖉𝖆𝖘</span><span class="sr-only">Judas</span><span class="brand-descriptor">/ PAYMENT OPERATIONS</span></a>
+    <nav class="top-nav {% if merchant %}merchant-nav{% endif %}" aria-label="Main navigation">
+      {% if merchant %}
+      <a href="/dashboard" {% if request.url.path == '/dashboard' %}aria-current="page"{% endif %}>Activity</a>
+      <a href="/setup" {% if request.url.path == '/setup' %}aria-current="page"{% endif %}>Accounts & settings</a>
+      <form action="/logout" method="post"><input type="hidden" name="csrf" value="{{ csrf }}"><button class="text-button" type="submit">Sign out</button></form>
+      {% else %}
+      <a href="/login">Merchant sign in</a><a class="nav-cta" href="/signup">Open workspace <span aria-hidden="true">↗</span></a>
+      {% endif %}
+    </nav>
+  </header>
+  <main id="main-content">{% block content %}{% endblock %}</main>
+  <footer class="site-footer"><span><span class="footer-word" aria-hidden="true">𝕵𝖚𝖉𝖆𝖘</span> / Payment operations</span><span>PROTOTYPE ENVIRONMENT · TEST TRANSACTIONS ONLY · <a href="/platform/chord">PLATFORM</a></span></footer>
+</body>
+</html>

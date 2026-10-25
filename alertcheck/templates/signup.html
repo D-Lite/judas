@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Create your shop{% endblock %}
+{% block content %}
+<section class="form-layout page-wrap"><div class="form-intro"><span class="eyebrow">WORKSPACE SETUP / STEP 01</span><h1>Set up your payment workspace.</h1><p>Start with your shop and merchant number. You’ll add a primary receiving account and a backup on the next screen.</p><div class="side-note"><span>J</span><p>Each shop gets a separate activity ledger, account configuration and health view.</p></div></div>
+  <div class="form-card"><div class="form-card-head"><span class="card-kicker">CREATE ACCOUNT</span><span>1 of 2</span></div>{% if error %}<div class="form-error" role="alert">{{ error }}</div>{% endif %}
+    <form method="post" action="/signup"><input type="hidden" name="csrf" value="{{ csrf }}">
+      <label>Shop name<input name="shop_name" required minlength="2" maxlength="120" autocomplete="organization" placeholder="e.g. Mama Bola’s Market" value="{{ values.shop_name if values else '' }}"></label>
+      <label>Email address<input name="email" type="email" required autocomplete="email" placeholder="you@yourshop.com" value="{{ values.email if values else '' }}"></label>
+      <label>Merchant WhatsApp number<input name="whatsapp_number" type="tel" required autocomplete="tel" inputmode="tel" placeholder="0801 234 5678" value="{{ values.whatsapp_number if values else '' }}"><small>Used for the merchant chat after channel connection is verified.</small></label>
+      <label>Password<input name="password" type="password" required minlength="12" autocomplete="new-password" placeholder="At least 12 characters"></label>
+      <button class="button button-primary form-submit" type="submit">Create shop <span aria-hidden="true">→</span></button>
+    </form><p class="form-tail">Already have a shop? <a href="/login">Sign in</a></p>
+  </div>
+</section>
+{% endblock %}

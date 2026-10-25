@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Payment operations{% endblock %}
+{% block content %}
+<section class="hero page-wrap">
+  <div class="hero-copy">
+    <span class="eyebrow hero-index"><span class="signal-dot"></span> RECEIPT VERIFICATION / NIGERIA</span>
+    <h1>Know when the money <span>actually lands.</span></h1>
+    <p>A receipt is a customer’s claim. Judas checks it against incoming bank activity, then records the outcome for your team and your customer.</p>
+    <div class="hero-actions"><a class="button button-primary" href="/signup">Open your workspace <span aria-hidden="true">↗</span></a><a class="inline-link" href="#how-it-works">How verification works <span aria-hidden="true">↓</span></a></div>
+    <p class="small-note"><span class="signal-dot"></span> Prototype mode uses a synthetic transaction feed. No live WhatsApp delivery is implied.</p>
+  </div>
+  <div class="verification-preview" aria-label="Illustrative receipt verification preview">
+    <div class="preview-toolbar"><span class="preview-mark">J / VERIFY</span><span class="preview-environment">DEMO WORKSPACE <span class="signal-dot"></span></span></div>
+    <div class="preview-heading"><span>INCOMING CLAIM</span><span>10:42:08 WAT</span></div>
+    <div class="claim-row"><div><small>CUSTOMER</small><strong>Daniel Olabemiwo</strong></div><div><small>AMOUNT ON RECEIPT</small><strong>₦3,200.00</strong></div></div>
+    <div class="preview-connector"><span>01 / RECEIPT</span><span class="connector-line"></span><span>02 / BANK RECORD</span></div>
+    <div class="evidence-box"><div class="evidence-heading"><span>INCOMING CREDIT FOUND</span><span class="evidence-indicator">MATCH</span></div><div class="evidence-values"><div><small>REFERENCE</small><strong>5248910036</strong></div><div><small>CREDIT</small><strong>₦3,200.00</strong></div></div></div>
+    <div class="preview-result"><span class="result-icon">✓</span><div><small>VERIFICATION OUTCOME</small><strong>Payment confirmed</strong></div><span class="result-time">10:42:11</span></div>
+    <div class="preview-bottom">ILLUSTRATIVE DATA <span>RECEIPT ≠ PROOF OF CREDIT</span></div>
+  </div>
+</section>
+<section class="workflow page-wrap" id="how-it-works"><div class="workflow-header"><span class="eyebrow">HOW JUDAS WORKS</span><h2>One decision, backed by a record.</h2><p>Keep every payment attempt visible without treating a screenshot as settlement.</p></div><div class="workflow-grid"><article><span class="workflow-index">01 <span>CLAIM</span></span><h3>Customer sends a receipt</h3><p>Read the stated amount, reference and destination account from the customer’s proof of payment.</p></article><article><span class="workflow-index">02 <span>CHECK</span></span><h3>Match the incoming credit</h3><p>Confirm only when the receiving account’s transaction record supports the claim.</p></article><article><span class="workflow-index">03 <span>RESULT</span></span><h3>Keep the outcome in view</h3><p>Confirmed, pending, failed or review—the merchant workspace keeps the full trail. WhatsApp delivery requires a connected channel.</p></article></div></section>
+{% endblock %}

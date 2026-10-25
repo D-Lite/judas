@@ -1,0 +1,1 @@
+"""AlertCheck application."""
